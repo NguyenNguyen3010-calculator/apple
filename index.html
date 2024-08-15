@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore Apple products and services with the latest technology innovations.">
+    <meta property="og:title" content="Apple - Innovative Technology">
+    <meta property="og:description" content="Discover Apple's latest products and services, featuring cutting-edge technology and design.">
+    <meta property="og:image" content="https://www.apple.com/v/mac/home/bl/images/overview/hero/macbook_air_15__b7dl56gvzu2y_large.jpg">
+    <meta property="og:url" content="https://www.apple.com">
+    <title>Apple</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f7;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+        header {
+            background-color: #000;
+            color: #fff;
+            padding: 10px 20px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        header img {
+            height: 40px;
+            margin-right: 10px;
+            transition: transform 0.3s ease;
+        }
+        header img:hover {
+            transform: scale(1.1);
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+            padding: 10px;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            transition: color 0.3s ease;
+        }
+        nav a:hover {
+            color: #f0f0f0;
+            text-decoration: underline;
+        }
+        .hero {
+            background: url('https://www.apple.com/v/mac/home/bl/images/overview/hero/macbook_air_15__b7dl56gvzu2y_large.jpg') no-repeat center center;
+            background-size: cover;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1;
+        }
+        .hero h2, .hero p {
+            z-index: 2;
+            animation: fadeIn 2s ease;
+        }
+        .hero p {
+            animation: fadeIn 2s ease 0.5s;
+        }
+        .content {
+            padding: 20px;
+            text-align: center;
+        }
+        .content h2 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        .content p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .cta {
+            background-color: #000;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .cta button {
+            background-color: #fff;
+            color: #000;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+        .cta button:hover {
+            background-color: #e0e0e0;
+        }
+        .testimonials {
+            background-color: #f0f0f0;
+            padding: 20px;
+            text-align: center;
+        }
+        .testimonials h2 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        .testimonial {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border-left: 4px solid #000;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .testimonial:hover {
+            transform: translateX(10px);
+        }
+        .newsletter {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        .newsletter input[type="email"] {
+            padding: 10px;
+            width: 300px;
+            border: none;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+        .newsletter button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            background-color: #fff;
+            color: #000;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+        }
+        .newsletter button:hover {
+            background-color: #e0e0e0;
+        }
+        .map {
+            padding: 20px;
+            text-align: center;
+        }
+        .map iframe {
+            width: 100%;
+            height: 400px;
+            border: none;
+            border-radius: 8px;
+        }
+        .gallery {
+            padding: 20px;
+            text-align: center;
+        }
+        .gallery img {
+            width: 100%;
+            max-width: 300px;
+            margin: 10px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .gallery img:hover {
+            transform: scale(1.1);
+        }
+        .countdown {
+            background-color: #fff;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .countdown h2 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+        .countdown p {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+        .poll {
+            background-color: #f5f5f7;
+            padding: 20px;
+            text-align: center;
+        }
+        .poll h2 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+        .poll form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .poll label {
+            margin: 10px 0;
+        }
+        .social-media {
+            padding: 20px;
+            text-align: center;
+            background-color: #f0f0f0;
+        }
+        .social-media a {
+            margin: 0 10px;
+            font-size: 1.5em;
+            color: #333;
+            transition: color 0.3s ease;
+        }
+        .social-media a:hover {
+            color: #000;
+        }
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            align-items: center;
+            justify-content: center;
+        }
+        .lightbox img {
+            max-width: 90%;
+            max-height: 80%;
+            margin: auto;
+        }
+        .lightbox:target {
+            display: flex;
+        }
+        .lightbox a {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 2em;
+            color: #fff;
+            text-decoration: none;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .back-to-top {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #000;
+            color: #fff;
+            border: none;
+            padding: 15px;
+            border-radius: 50%;
+            font-size: 1.5em;
+            cursor: pointer;
+            z-index: 1000;
+            transition: opacity 0.3s ease;
+        }
+        .back-to-top.show {
+            display: block;
+        }
+        .video {
+            padding: 20px;
+            text-align: center;
+        }
+        .video iframe {
+            width: 100%;
+            height: 315px;
+            border: none;
+            border-radius: 8px;
+        }
+        .faq {
+            background-color: #fff;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .faq h2 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+        .faq dt {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .faq dd {
+            margin: 0;
+        }
+        .comparison-table {
+            padding: 20px;
+            text-align: center;
+        }
+        .comparison-table table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0 auto;
+        }
+        .comparison-table th, .comparison-table td {
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+        .comparison-table th {
+            background-color: #f0f0f0;
+        }
+        .comparison-table td {
+            background-color: #fff;
+        }
+        .comparison-table caption {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/31/Apple_logo_white.svg" alt="Apple Logo">
+        <h1>Apple</h1>
+    </header>
+    <nav>
+        <a href="#mac">Mac</a>
+        <a href="#ipad">iPad</a>
+        <a href="#iphone">iPhone</a>
+        <a href="#watch">Watch</a>
+        <a href="#tv">TV</a>
+        <a href="#music">Music</a>
+        <a href="#support">Support</a>
+    </nav>
+    <div class="hero">
+        <h2>Explore the Latest Innovations</h2>
+        <p>Discover the cutting-edge technology that drives Apple products.</p>
+    </div>
+    <div class="content">
+        <h2>Experience the Best Technology</h2>
+        <p>Explore our innovative products and services. Discover the latest advancements in technology, and see how Apple can help you create, connect, and enjoy.</p>
+    </div>
+    <div class="cta">
+        <h2>Ready to Get Started?</h2>
+        <p>Join the Apple community today and experience the future of technology.</p>
+        <button>Learn More</button>
+    </div>
+    <div class="features">
+        <h2>Key Features</h2>
+        <p>Learn more about the standout features of our latest products.</p>
+        <ul>
+            <li><strong>High Performance:</strong> Our products deliver unmatched speed and efficiency.</li>
+            <li><strong>Innovative Design:</strong> Sleek and modern designs that are both functional and stylish.</li>
+            <li><strong>Advanced Technology:</strong> Cutting-edge technology that keeps you ahead of the curve.</li>
+        </ul>
+    </div>
+    <div class="testimonials">
+        <h2>What Our Users Say</h2>
+        <div class="testimonial">
+            <p>"Apple products are always top-notch. The design and performance are unmatched!"</p>
+            <footer>- Jane Doe, Designer</footer>
+        </div>
+        <div class="testimonial">
+            <p>"I've been using Apple products for years, and they never disappoint. Highly recommended!"</p>
+            <footer>- John Smith, Developer</footer>
+        </div>
+    </div>
+    <div class="newsletter">
+        <h2>Subscribe to Our Newsletter</h2>
+        <p>Stay updated with the latest news and offers from Apple.</p>
+        <form action="#" method="post">
+            <input type="email" placeholder="Enter your email" required>
+            <button type="submit">Subscribe</button>
+        </form>
+    </div>
+    <div class="map">
+        <h2>Our Locations</h2>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.424148334325!2d-122.419418684681!3d37.7749292797584!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085808e6d10bbff%3A0x73c1ef1624467b9a!2sApple%20Park!5e0!3m2!1sen!2sus!4v1604456869312!5m2!1sen!2sus" allowfullscreen="" loading="lazy"></iframe>
+    </div>
+    <div class="gallery">
+        <h2>Image Gallery</h2>
+        <a href="#lightbox1" class="gallery-item"><img src="https://www.apple.com/newsroom/images/2023/09/apple-unveils-iphone-15-pro-and-iphone-15-pro-max/tile/Apple-iPhone-15-Pro-lineup-hero-230912.jpg.news_app_ed.jpg" alt="MacBook Air"></a>
+        <a href="#lightbox2" class="gallery-item"><img src="https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/refurb-ipad-pro-12-wifi-spacegray-2021?wid=1144&hei=1144&fmt=jpeg&qlt=90&.v=1674663706569" alt="iPad Pro"></a>
+        <a href="#lightbox3" class="gallery-item"><img src="https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/mbp16-spaceblack-select-202310?wid=904&hei=840&fmt=jpeg&qlt=90&.v=1697311054290" alt="iPhone 14 Pro"></a>
+    </div>
+    <div id="lightbox1" class="lightbox">
+        <a href="#">&times;</a>
+        <img src="https://www.apple.com/newsroom/images/2023/09/apple-unveils-iphone-15-pro-and-iphone-15-pro-max/tile/Apple-iPhone-15-Pro-lineup-hero-230912.jpg.news_app_ed.jpg" alt="MacBook Air">
+    </div>
+    <div id="lightbox2" class="lightbox">
+        <a href="#">&times;</a>
+        <img src="https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/refurb-ipad-pro-12-wifi-spacegray-2021?wid=1144&hei=1144&fmt=jpeg&qlt=90&.v=1674663706569" alt="iPad Pro">
+    </div>
+    <div id="lightbox3" class="lightbox">
+        <a href="#">&times;</a>
+        <img src="https://store.storeimages.cdn-apple.com/8756/as-images.apple.com/is/mbp16-spaceblack-select-202310?wid=904&hei=840&fmt=jpeg&qlt=90&.v=1697311054290" alt="iPhone 14 Pro">
+    </div>
+    <div class="countdown">
+        <h2>Upcoming Event</h2>
+        <p id="countdown"></p>
+    </div>
+    <div class="poll">
+        <h2>What's Your Favorite Apple Product?</h2>
+        <form>
+            <label><input type="radio" name="poll" value="MacBook"> MacBook</label>
+            <label><input type="radio" name="poll" value="iPad"> iPad</label>
+            <label><input type="radio" name="poll" value="iPhone"> iPhone</label>
+            <label><input type="radio" name="poll" value="Apple Watch"> Apple Watch</label>
+            <button type="submit">Vote</button>
+        </form>
+    </div>
+    <div class="social-media">
+        <h2>Follow Us</h2>
+        <a href="https://twitter.com/apple" target="_blank">Twitter</a>
+        <a href="https://facebook.com/apple" target="_blank">Facebook</a>
+        <a href="https://instagram.com/apple" target="_blank">Instagram</a>
+    </div>
+    <div class="video">
+        <h2>Watch Our Latest Ad</h2>
+        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen></iframe>
+    </div>
+    <div class="faq">
+        <h2>Frequently Asked Questions</h2>
+        <dl>
+            <dt>What is the return policy?</dt>
+            <dd>We offer a 14-day return policy for most products. Please check our website for specific details.</dd>
+            <dt>How can I contact customer support?</dt>
+            <dd>You can reach out to us via our support page, available on our website under the Support section.</dd>
+            <dt>Do you offer international shipping?</dt>
+            <dd>Yes, we ship to many countries worldwide. Shipping fees and delivery times vary by location.</dd>
+        </dl>
+    </div>
+    <div class="comparison-table">
+        <h2>Product Comparison</h2>
+        <table>
+            <caption>Compare Our Latest Products</caption>
+            <thead>
+                <tr>
+                    <th>Feature</th>
+                    <th>MacBook Air</th>
+                    <th>iPad Pro</th>
+                    <th>iPhone 14 Pro</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Display</td>
+                    <td>13.6-inch Retina</td>
+                    <td>12.9-inch Liquid Retina</td>
+                    <td>6.1-inch Super Retina XDR</td>
+                </tr>
+                <tr>
+                    <td>Processor</td>
+                    <td>M2 Chip</td>
+                    <td>M2 Chip</td>
+                    <td>A16 Bionic</td>
+                </tr>
+                <tr>
+                    <td>Camera</td>
+                    <td>1080p FaceTime HD</td>
+                    <td>12MP Ultra Wide</td>
+                    <td>48MP Triple Camera System</td>
+                </tr>
+                <tr>
+                    <td>Battery Life</td>
+                    <td>Up to 18 hours</td>
+                    <td>Up to 10 hours</td>
+                    <td>Up to 22 hours</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <footer>
+        <p>&copy; 2024 Apple Inc. All rights reserved.</p>
+    </footer>
+    <button class="back-to-top" onclick="scrollToTop()">&#9650;</button>
+    <script>
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Back to Top Button Visibility
+        window.addEventListener('scroll', () => {
+            const backToTopButton = document.querySelector('.back-to-top');
+            if (window.scrollY > 300) {
+                backToTopButton.classList.add('show');
+            } else {
+                backToTopButton.classList.remove('show');
+            }
+        });
+
+        // Countdown Timer
+        function updateCountdown() {
+            const eventDate = new Date('2024-12-31T00:00:00'); // Set your target date here
+            const now = new Date();
+            const timeRemaining = eventDate - now;
+            const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+            document.getElementById('countdown').innerHTML =
+                `${days} Days ${hours} Hours ${minutes} Minutes ${seconds} Seconds`;
+        }
+
+        setInterval(updateCountdown, 1000);
+    </script>
+</body>
+</html>
